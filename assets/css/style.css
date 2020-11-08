@@ -1,3 +1,11 @@
+:root {
+    --primary: #44e9ff;
+    --secondary: #497980;
+    --tertiary: rgb(192, 246, 253);
+    --grey: #333;
+
+};
+
 * {
     margin: 0;
     padding: 0;
