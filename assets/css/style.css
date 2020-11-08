@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin: 2vw;
+}
+
+main {
+    padding: 1vw 30vw 1vw 30vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.title, .quizDescription {
+    color: black;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.start {
+    background-color: brown;
+    color: burlywood;
+    width: 100px;
+    align-self: center;
+}
+
+.start:hover {
+    background-color: blueviolet;
+}
+
+.question {
+    color: rebeccapurple;
+    margin-bottom: 10px;
+    /**width: 30vw;**/
+}
+
+.quizBtn {
+    display: flex;
+    align-items: center;
+    background-color: royalblue;
+    border: salmon solid 2px;
+    border-radius: 20px;
+    height: 5vh;
+    color: wheat;
+    text-align: left;
+    padding-left: 10px;
+    margin: 5px;
+    font-size: 18px;
+    font-weight: lighter;
+}
+
+.quizBtn:hover {
+    background-color: salmon;
+}
+
+.feedback-container {
+    display: flex;
+    justify-content: space-between;
+    border-top: grey 2px solid;
+    margin-top: 20px;
+    padding: 3px;
+    height: 60px;
+}
+
+.feedback {
+    color: grey;
+}
+
+.next-button {
+    background-color: red;
+    color: white;
+    border-radius: 15px;
+    border: solid black 2px;
+    padding: 6px;
+    display: none;
+    height: 40px;
+    width: 60px;
+}
+
+.next-button:hover {
+    box-shadow: 0 0 5px black;
+}
