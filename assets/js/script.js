@@ -10,15 +10,25 @@ var highScores = [];
 
 // build array to hold all the questions and answers
 var quizData = [
-    {q: "Question #1", options: [{a:"option 1", isCorrect:false},{a:"option 2", isCorrect:false}, {a:"option 3", isCorrect:true}, {a:"option 4", isCorrect:false}]},
+    {q: "Pascal from Tangled.", options: [{a:"Lizard", isCorrect:false},{a:"Horse", isCorrect:false}, {a:"Chameleon", isCorrect:true}, {a:"Rabbit", isCorrect:false}]},
 
-    {q: "Question #2", options: [{a:"option 1", isCorrect:false},{a:"option 2", isCorrect:false}, {a:"option 3", isCorrect:true}, {a:"option 4", isCorrect:false}]},
+    {q: "Thumper from A Bug's Life.", options: [{a:"Grasshopper", isCorrect:true},{a:"Rabbit", isCorrect:false}, {a:"Ant", isCorrect:false}, {a:"Deer", isCorrect:false}]},
     
-    {q: "Question #3", options: [{a:"option 1", isCorrect:false},{a:"option 2", isCorrect:false}, {a:"option 3", isCorrect:true}, {a:"option 4", isCorrect:false}]},
+    {q: "Meeko from Pocahontas.", options: [{a:"Hummingbird", isCorrect:false},{a:"Raccoon", isCorrect:true}, {a:"Pug", isCorrect:false}, {a:"Squirrel", isCorrect:false}]},
     
-    {q: "Question #4", options: [{a:"option 1", isCorrect:false},{a:"option 2", isCorrect:false}, {a:"option 3", isCorrect:true}, {a:"option 4", isCorrect:false}]},
+    {q: "Orville from The Rescuers.", options: [{a:"Mouse", isCorrect:false},{a:"Seagull", isCorrect:false}, {a:"Crocodile", isCorrect:false}, {a:"Albatross", isCorrect:true}]},
     
-    {q: "Question #5", options: [{a:"option 1", isCorrect:false},{a:"option 2", isCorrect:false}, {a:"option 3", isCorrect:true}, {a:"option 4", isCorrect:false}]}
+    {q: "Heihei from Moana.", options: [{a:"Pig", isCorrect:false},{a:"Rooster", isCorrect:true}, {a:"Crab", isCorrect:false}, {a:"Dolphin", isCorrect:false}]},
+
+    {q: "Squirt from Finding Nemo.", options: [{a:"Octopus", isCorrect:false},{a:"Hammerhead Shark", isCorrect:false}, {a:"Turtle", isCorrect:true}, {a:"Clownfish", isCorrect:false}]},
+
+    {q: "Nick Wilde from Zootopia.", options: [{a:"Fox", isCorrect:true},{a:"Sloth", isCorrect:false}, {a:"Rabbit", isCorrect:false}, {a:"Otter", isCorrect:false}]},
+
+    {q: "Louis from The Princess and the Frog.", options: [{a:"Bear", isCorrect:false},{a:"Frog", isCorrect:false}, {a:"Muskrat", isCorrect:false}, {a:"Alligator", isCorrect:true}]},
+
+    {q: "The Sheriff of Nottingham from Robin Hood.", options: [{a:"Fox", isCorrect:false},{a:"Bear", isCorrect:false}, {a:"Wolf", isCorrect:true}, {a:"Lion", isCorrect:false}]},
+
+    {q: "Timon from The Lion King.", options: [{a:"Mongoose", isCorrect:false},{a:"Meerkat", isCorrect:true}, {a:"Weasel", isCorrect:false}, {a:"Ferret", isCorrect:false}]}
 ];
 
 var btnHandler = function(event) {
@@ -47,13 +57,13 @@ var btnHandler = function(event) {
         var nextBtnE1 = document.querySelector(".next-button");
         // let the user know if their answer was correct and display next button
         if (isCorrect === "true") {
-            answerE1.setAttribute("style", "background: green");
+            answerE1.setAttribute("style", "background: var(--correctAnswer)");
             // assign appropriate text and display next button
             feedbackE1.textContent = "Congratulations! You have answered correctly."
             nextBtnE1.setAttribute("style", "display: block");
             score++
         } else {
-            answerE1.setAttribute("style", "background: red");
+            answerE1.setAttribute("style", "background: var(--wrongAnswer)");
             // assign appropriate text and display next button
             feedbackE1.textContent = "Sorry. That answer is not correct. 5s have been deducted from the clock!"
             nextBtnE1.setAttribute("style", "display: block");
@@ -101,13 +111,13 @@ var homeScrn = function() {
     // build Title element
     var titleE1 = document.createElement("h1");
     titleE1.className = "title";
-    titleE1.textContent = "Theme Park Quiz";
+    titleE1.textContent = "Ultimate Disney Animated Character Quiz";
     mainE1.appendChild(titleE1);
 
     // build description element
     var descE1 = document.createElement("p");
     descE1.className = "body-text quizDescription";
-    descE1.textContent = "The ultimate test of your theme park knowledge! The quicker you answer, the better your score.";
+    descE1.textContent = "This quiz will text your knowledge of animated Disney characters. For each movie, you will be asked to identify the species of a character. You will have 60s to answer as many questions as possible. For each wrong answer, 5s will be deducted from the clock. Press the start button to begin.";
     mainE1.appendChild(descE1);
 
     // build start button
@@ -118,7 +128,7 @@ var homeScrn = function() {
 
     // reset timer and score
     timeLeft = 0;
-    timerE1.textContent = "Time: " + timeLeft;
+    timerE1.textContent = "Timer: " + timeLeft;
     score = 0;
 };
 
@@ -162,7 +172,7 @@ var nextQuestion = function(questionNumber) {
 
 var countdown = function() {
     // counts down everytime function is called
-    timeLeft = 30;
+    timeLeft = 60;
     var timeInterval = setInterval(function() {
         if (timeLeft >= 1) {
             timerE1.textContent = "Timer: " + timeLeft;
@@ -189,7 +199,7 @@ var resultsPage = function() {
 
     // build description element
     var descE1 = document.createElement("p");
-    descE1.className = "body-text";
+    descE1.className = "body-text results";
     descE1.textContent = "Your final score is " + score + ".";
     mainE1.appendChild(descE1);
 

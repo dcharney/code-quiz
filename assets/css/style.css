@@ -1,9 +1,26 @@
+/** establish main color scheme **/
 :root {
-    --primary: #44e9ff;
-    --secondary: #497980;
-    --tertiary: rgb(192, 246, 253);
-    --grey: #333;
+    /** used for titles and questions **/
+    --darkfont:#486353;
+    /** currently not used **/
+    --lightfont: #faf3dd;
+    /** styles for all buttons but quiz responses **/
+    --btnBackground:#698474;
+    --btnBorder:#889e81;
+    --btnFont:#e5e4cc;
+    --btnHover:#889e81;
+    --btnHoverShadow:#bac7a7;
+    /** styles for all quiz responses **/
+    --quizBtnBackground: #94b4a4;
+    --quizBtnBorder: #94b4a4;
+    --quizBtnFont: #486353;
+    --quizbtnHover:#d2f5e3;
+    --quizbtnHoverShadow:#486353;
 
+    --correctAnswer: #799351;
+    --wrongAnswer: #aa3a3a;
+
+    --scoreTableBackground: #bac7a7;
 };
 
 * {
@@ -16,32 +33,42 @@ header {
     display: flex;
     justify-content: space-between;
     margin: 2vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 main {
-    padding: 1vw 30vw 1vw 30vw;
+    padding: 1vw 20vw 1vw 20vw;
     height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 /** generic styling for all buttons **/
 .btn {
     color: white;
     border-radius: 10px;
-    border: solid black 2px;
-    padding: 6px;
+    border: solid var(--btnBorder) 2px;
+    padding: 10px 12px;
     outline: none;
+    background-color: var(--btnBackground);
+    color: var(--btnFont);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.btn:hover {
+    background-color: var(--btnHover);
+    box-shadow: 0 0 5px var(--btnHoverShadow);
 }
 
 /** generic body text styling **/
 .body-text {
     font-size: 18px;
-    margin-bottom: 10px;
+    color: var(--darkfont);
 }
 
+/** start header styles **/
 .view-high-scores {
     border: none;
     background-color: white;
@@ -49,44 +76,54 @@ main {
     outline: none;
 }
 
+.timer {
+    font-size: 17px;
+}
+
+/** end header styles **/
+
 .title, .quizDescription {
     text-align: center;
 }
 
-.start {
-    background-color: brown;
-    color: burlywood;
-    width: 100px;
-    align-self: center;
+.title, .results-title, .highScores-title {
+    font-size: 40px;
+    color: var(--darkfont);
+    
 }
 
-.start:hover {
-    background-color: blueviolet;
+.start {
+    align-self: center;
+    margin-top: 10px;
+    font-size: 17px;
 }
 
 .question {
-    color: rebeccapurple;
+    color: var(--darkfont);
     margin-bottom: 10px;
-    /**width: 30vw;**/
+    margin-left: 10%;
 }
 
 .quizBtn {
     display: flex;
     align-items: center;
-    background-color: royalblue;
-    border: salmon solid 2px;
+    justify-content: center;
     border-radius: 20px;
     height: 5vh;
-    color: wheat;
-    text-align: left;
-    padding-left: 10px;
     margin: 5px;
     font-size: 18px;
     font-weight: lighter;
+    width: 70%;
+    align-self: center;
+
+    background-color: var(--quizBtnBackground);
+    border: var(--quizBtnBorder) solid 2px;
+    color: var(--quizBtnFont);
 }
 
 .quizBtn:hover {
-    background-color: salmon;
+    background-color: var(--quizbtnHover);
+    box-shadow: 0 0 5px var(--quizbtnHoverShadow);
 }
 
 .feedback-container {
@@ -103,28 +140,20 @@ main {
 }
 
 .next-button {
-    background-color: red;
     display: none;
     height: 40px;
     width: 60px;
 }
 
-.next-button:hover {
-    box-shadow: 0 0 5px black;
-}
-
-.results-title, .results {
+.results-title, .results, .initials-input-form {
     margin-bottom: 10px;
+    margin-left: 25%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .initials-submit-btn {
-    background-color: royalblue;
-    margin-left: 5px;
-    width: 60px;
-}
-
-.initials-submit-btn:hover {
-    box-shadow: 0 0 5px black;
+    margin-left: 7px;
+    margin-top: 20px;
 }
 
 .highScores-title {
@@ -132,12 +161,12 @@ main {
 }
 
 .score {
-    background-color: skyblue;
-    font-size: 20PX;
+    background-color: var(--scoreTableBackground);
+    font-size: 20px;
+    margin: 0;
 }
 
 .highScores-btn {
     margin-top: 10px;
     margin-right: 10px;
-    background-color: royalblue;
 }
