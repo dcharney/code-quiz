@@ -74,6 +74,12 @@ main {
     background-color: white;
     font-size: 15px;
     outline: none;
+    color: var(--darkfont);
+    font-weight: bold;
+}
+
+.view-high-scores:hover {
+    text-shadow: 0 0 2px var(--btnBorder);
 }
 
 .timer {
