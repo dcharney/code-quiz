@@ -90,7 +90,7 @@ var btnHandler = function(event) {
         homeScrn();
     } else if (event.target.matches(".clear-btn")) {
         // clear high scores variable in local storage
-        highScores = [{name: "", score: ""}];
+        highScores = [{name: "placeholder", score: ""}];
         localStorage.setItem("highScores", JSON.stringify(highScores));
         // reload score table
         highScoreScrn();
@@ -235,10 +235,15 @@ var highScoreScrn = function() {
     highScores = localStorage.getItem("highScores");
     if (highScores) {highScores = JSON.parse(highScores)} else {
         // build an empty high score if no local storage object exists
-        highScores = [{name: "", score: ""}];
+        highScores = [{name: "placeholder", score: ""}];
         localStorage.setItem("highScores", JSON.stringify(highScores));
     }
 
+    // remove placeholder once real score data has been added
+    if (highScores.length >= 2 && highScores[0].name === "placeholder") {
+        highScores.shift();
+        localStorage.setItem("highScores", JSON.stringify(highScores));
+    };
 
     var titleE1 = document.createElement("h1");
     titleE1.className = "highScores-title";
